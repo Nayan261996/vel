@@ -1,25 +1,25 @@
 pipeline {
     agent { node 'built-in'}
     stages {
-    stage('copy index.htm') {
-        step {
+    stage('copy index.html') {
+        steps {
             sh 'cp -r index.html /var/www/html/'
         }
     }
-    stage('copy dev.htm') {
-        step {
+    stage('copy dev.html') {
+        steps {
             sh 'cp -r dev.html /var/www/html/'
         }
     }
-    stage('copy qa.htm') {
-        step {
+    stage('copy qa.html') {
+        steps {
             sh 'cp -r qa.html /var/www/html/'
         }
     }
     stage('httpd-restart') {
-        step {
+        steps {
             sh 'service httpd restart'
         }
     }
 }
-}
+
